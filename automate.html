@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <link href="metro-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ENTER TITLE HERE</title>
+</head>
+<body onload="getHosts(event); checkLoggedIn();">
+<ul class="sidenav-simple sidenav-simple-expand-fs h-auto">
+    <li><a href="home.html">
+        <span class="mif-home icon"></span>
+        <span class="title">Home</span>
+    </a></li>
+    <li><a href="automate.html">
+        <span class="mif-linux icon"></span>
+        <span class="title">Automate Linux</span>
+    </a></li>
+    <li><a href="#">
+        <span class="mif-apps icon"></span>
+        <span class="title">Automate Windows</span>
+    </a></li>
+    <li><a href="add_new_host.html">
+        <span class="mif-apps icon"></span>
+        <span class="title">Add a Host</span>
+    </a></li>
+    <li><a href="default_linux.html">
+        <span class="mif-apps icon"></span>
+        <span class="title">Default Linux Automation</span>
+    </a></li>
+    <li><a href="default_windows.html">
+        <span class="mif-apps icon"></span>
+        <span class="title">Default Windows Automation</span>
+    </a></li>
+    <li><a onclick="logout(event)">
+        <span class="mif-apps icon"></span>
+        <span class="title">Log Out</span>
+    </a></li>
+</ul>
+
+<input type="button" onclick="window.location.href='home.html'" id="btnHome" value="Home!" />
+
+<form id="formRequest">
+
+    <p id="pRadios"></p>
+    Systems to administer:<br>
+    <input type="radio" name="system" id="radioUbuntu"  value="ubuntu-systems"> Ubuntu Systems<br>
+    <input type="radio" name="system" id="radioWindows" value="windows-systems"> Windows Systems<br>
+    <input type="radio" name="system" id="radioCustom" value="other"> Custom Group<br><br>
+    <input id="checkboxSystem1" type="checkbox" value="192.168.0.1">192.168.0.1<br>
+    <input id="checkboxSystem2" type="checkbox" value="192.168.0.2">192.168.0.2<br>
+    <input id="checkboxSystem3" type="checkbox" value="192.168.0.3">192.168.0.3<br>
+    <input id="checkboxSystem4" type="checkbox" value="192.168.0.4">192.168.0.4<br>
+    <input id="checkboxSystem5" type="checkbox" value="192.168.0.5">192.168.0.5<br>
+
+    What would you like to do?
+    <input type="submit" id="btnSubmit">
+</form>
+
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+        <link href="metro-icons.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>
+                Windows Automation
+            </title>
+    </head>
+
+    <style>
+        .item1 { grid-area: header; }
+        .item2 { grid-area: menu; }
+        .item3 { grid-area: main; }
+        .item4 { grid-area: right; }
+        .item5 { grid-area: footer; }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                    'header header header header header header'
+                    'menu main main main right right'
+                    'menu footer footer footer right right';
+            grid-gap: 10px;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+        .grid-container > div {
+            background-color: rgba(248, 248, 248, 0.8);
+            text-align: left;
+            padding: 20px 0;
+            font-size: 18px;
+        }
+    </style>
+
+    <body style="background-color: #f8f8f8;" onload="checkLoggedIn();
+    getInventories(document.getElementById('selectInventoryToAutomate'), 'windows');">
+
+    <div class="grid-container">
+        <div class="item1">
+            <img src="Images/NOCLogo.png" width="25%" >
+            <h2 style="text-align: center;">Automate Windows</h2>
+        </div>
+
+        <div class="item2">
+            <ul class="sidenav-simple sidenav-simple-expand-fs">
+                <li><a href="home.html">
+                    <span class="mif-home icon"></span>
+                    <span class="title">Home</span>
+                </a></li>
+                <li><a href="add_new_host.html">
+                    <span class="mif-laptop icon"></span>
+                    <span class="title">Add a Host</span>
+                </a></li>
+                <li><a href="edit_inventories.html">
+                    <span class="mif-list icon"></span>
+                    <span class="title">Edit Inventory</span>
+                </a></li>
+                <li><a href="default_linux.html">
+                    <span class="mif-linux icon"></span>
+                    <span class="title">Linux</span>
+                </a></li>
+
+                <li><a href="default_windows.html">
+                    <span class="mif-windows icon"></span>
+                    <span class="title">Windows</span>
+                </a></li>
+                <li><a onclick="logout(event)">
+                    <span class="mif-keyboard-return icon"></span>
+                    <span class="title">Log Out</span>
+                </a></li>
+            </ul>
+
+        </div>
+
+        <div class="item3">
+            Which Inventory would you like to automate?
+            <select onchange="getTemplates(document.getElementById('selectJobToRun'));" id="selectInventoryToAutomate">
+            </select><br>
+            Which job would you like to run?
+            <select id="selectJobToRun">
+            </select><br>
+            <button onclick="runJob(document.getElementById('selectJobToRun'));
+            window.setInterval(function() {jobResult(event)}, 3000);" id="btnRunWindowsJob" >Run Job! </button>
+        </div>
+
+        <div class="item5">
+            <textarea id="resultOut" rows="20" cols="10"> No Data...</textarea>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script src="main.js"></script>
+    </body>
+</html>
